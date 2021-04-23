@@ -1,6 +1,7 @@
 import * as esbuild from "esbuild-wasm";
 import { useCallback, useEffect, useRef, useState } from "react";
 import ReactDom from "react-dom";
+import CodeEditor from "./components/CodeEditor";
 import { fetchPlugin } from "./plugins/fetch-plugin";
 import { unpkgPathPlugin } from "./plugins/unpkg-path-plugin";
 
@@ -61,6 +62,7 @@ const App = () => {
 
   return (
     <div>
+      <CodeEditor initialValue="const a = 1;" />
       <textarea
         onChange={e => setInput(e.target.value)}
         defaultValue={input}
