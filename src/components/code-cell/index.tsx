@@ -1,8 +1,8 @@
 import "bulmaswatch/superhero/bulmaswatch.min.css";
 import { useCallback, useState } from "react";
-import bundle from "../bundler";
-import CodeEditor from "../components/CodeEditor";
-import Preview from "../components/Preview";
+import bundle from "../../bundler";
+import CodeEditor from "../code-editor";
+import Preview from "../preview";
 
 const CodeCell = () => {
   const [input, setInput] = useState("");

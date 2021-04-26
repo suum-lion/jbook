@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import CodeCell from "./components/CodeCell";
+import CodeCell from "./components/code-cell";
 
 const App = () => {
   return (
