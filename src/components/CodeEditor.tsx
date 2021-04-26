@@ -1,7 +1,11 @@
+import "./CodeEditor.css";
+import "./Syntax.css";
 import MonacoEditor, { EditorDidMount } from "@monaco-editor/react";
 import prettier from "prettier";
 import parser from "prettier/parser-babel";
 import { FC, useCallback, useRef } from "react";
+import codeShift from "jscodeshift";
+import Highlighter from "monaco-jsx-highlighter";
 
 interface CodeEditorProps {
   initialValue: string;
@@ -17,6 +21,19 @@ const CodeEditor: FC<CodeEditorProps> = ({ initialValue, onChange }) => {
         onChange(getValue());
       });
       monacoEditor.getModel()?.updateOptions({ tabSize: 2 });
+
+      const highlighter = new Highlighter(
+        // @ts-ignore
+        window.monaco,
+        codeShift,
+        monacoEditor
+      );
+      highlighter.highLightOnDidChangeModelContent(
+        () => {},
+        () => {},
+        undefined,
+        () => {}
+      );
     },
     [onChange]
   );
@@ -26,21 +43,27 @@ const CodeEditor: FC<CodeEditorProps> = ({ initialValue, onChange }) => {
     const unformatted = editorRef.current.getModel().getValue();
 
     // format that value
-    const formatted = prettier.format(unformatted, {
-      parser: "babel",
-      plugins: [parser],
-      useTabs: false,
-      semi: true,
-      singleQuote: true
-    });
+    const formatted = prettier
+      .format(unformatted, {
+        parser: "babel",
+        plugins: [parser],
+        useTabs: false,
+        semi: true,
+        singleQuote: true
+      })
+      .replace(/\n$/, "");
 
     // set the formatted value back in the editor
     editorRef.current.setValue(formatted);
   }, []);
 
   return (
-    <div>
-      <button type="button" onClick={onFormatClick}>
+    <div className="editor-wrapper">
+      <button
+        className="button button-format is-primary is-small"
+        type="button"
+        onClick={onFormatClick}
+      >
         Format
       </button>
       <MonacoEditor
