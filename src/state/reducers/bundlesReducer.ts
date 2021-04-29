@@ -34,7 +34,8 @@ const reducer = produce(
       default:
         return draft;
     }
-  }
+  },
+  initialState
 );
 
 export default reducer;
