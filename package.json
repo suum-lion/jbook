@@ -16,6 +16,7 @@
     "axios": "0.21.1",
     "bulmaswatch": "^0.8.1",
     "esbuild-wasm": "0.8.27",
+    "history": "^5.0.0",
     "immer": "^9.0.2",
     "jscodeshift": "0.11.0",
     "localforage": "^1.9.0",
@@ -25,6 +26,7 @@
     "react-dom": "^17.0.2",
     "react-redux": "7.2.2",
     "react-resizable": "1.11.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "redux": "4.0.5",
     "redux-thunk": "2.3.0",
@@ -56,10 +58,12 @@
     ]
   },
   "devDependencies": {
+    "@types/history": "^4.7.8",
     "@types/jscodeshift": "0.7.2",
     "@types/prettier": "^2.2.3",
     "@types/react-redux": "7.1.15",
     "@types/react-resizable": "1.7.2",
+    "@types/react-router-dom": "^5.1.7",
     "monaco-editor": "0.23.0"
   }
 }
