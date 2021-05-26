@@ -65,6 +65,8 @@
     "@types/react-resizable": "1.7.2",
     "@types/react-router-dom": "^5.1.7",
     "miragejs": "^0.1.41",
-    "monaco-editor": "0.23.0"
+    "monaco-editor": "0.23.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-logger": "^3.0.6"
   }
 }

@@ -46,7 +46,7 @@ const reducer = produce(
         const cell: Cell = {
           content: "",
           type: action.payload.type,
-          id: randomId()
+          id: action.payload.id || randomId()
         };
 
         draft.data[cell.id] = cell;

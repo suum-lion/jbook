@@ -27,6 +27,8 @@ export function makeServer({ environment = "development" } = {}) {
 
         return source;
       });
+
+      this.passthrough('https://unpkg.com/**');
     }
   });
 }

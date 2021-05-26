@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { shallowEqual } from "react-redux";
 import { useParams } from "react-router";
 import CellList from "../components/cell-list";
 import { useActions } from "../hooks/use-actions";
@@ -15,7 +16,8 @@ const Editor = () => {
     ({ sources: { loading, data } }) => ({
       source: data[templateId],
       loading
-    })
+    }),
+    shallowEqual
   );
 
   useEffect(() => {

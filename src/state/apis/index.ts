@@ -1,6 +1,6 @@
-export const requestLoadSource = async (id: string) => {
-  const resp = await fetch(`/api/sources/${id}`);
-  const data = await resp.json();
+import axios from "axios";
 
-  return data.source;
+export const requestLoadSource = async (id: string) => {
+  const resp = await axios.get(`/api/sources/${id}`);
+  return resp.data.source;
 };
