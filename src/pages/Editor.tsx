@@ -1,5 +1,8 @@
+import { useEffect } from "react";
 import { useParams } from "react-router";
 import CellList from "../components/cell-list";
+import { useActions } from "../hooks/use-actions";
+import { useTypedSelector } from "../hooks/use-typed-selector";
 
 type EditorParams = {
   templateId: string;
@@ -7,7 +10,24 @@ type EditorParams = {
 
 const Editor = () => {
   const { templateId } = useParams<EditorParams>();
-  console.log(templateId)
+  const { loadSource } = useActions();
+  const { loading, source } = useTypedSelector(
+    ({ sources: { loading, data } }) => ({
+      source: data[templateId],
+      loading
+    })
+  );
+
+  useEffect(() => {
+    if (!loading && source) {
+      console.log(source);
+    }
+  }, [loading, source]);
+
+  useEffect(() => {
+    loadSource(templateId);
+  }, [loadSource, templateId]);
+
   return <CellList />;
 };
 
