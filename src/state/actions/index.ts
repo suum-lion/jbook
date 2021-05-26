@@ -1,5 +1,6 @@
 import { ActionType } from "../action-types";
 import { CellTypes } from "../cell";
+import { ISource } from "../reducers/sourcesReducer";
 
 export type Direction = "up" | "down";
 export interface MoveCellAction {
@@ -49,10 +50,24 @@ export interface BundleCompleteAction {
   };
 }
 
+export interface LoadSourceStartAction {
+  type: ActionType.LOAD_SOURCE_START;
+}
+
+export interface LoadSourceCompleteAction {
+  type: ActionType.LOAD_SOURCE_COMPLETE;
+  payload: {
+    sourceId: string;
+    source: ISource;
+  };
+}
+
 export type Action =
   | MoveCellAction
   | DeleteCellAction
   | insertCellAfterAction
   | UpdateCellAction
   | BundleStartAction
-  | BundleCompleteAction;
+  | BundleCompleteAction
+  | LoadSourceStartAction
+  | LoadSourceCompleteAction;

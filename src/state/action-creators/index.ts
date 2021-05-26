@@ -9,6 +9,7 @@ import {
   MoveCellAction,
   UpdateCellAction
 } from "../actions";
+import { requestLoadSource } from "../apis";
 import { CellTypes } from "../cell";
 
 export const updateCell = (id: string, content: string): UpdateCellAction => {
@@ -67,6 +68,24 @@ export const createBundle = (cellId: string, input: string) => {
       payload: {
         cellId,
         bundle: result
+      }
+    });
+  };
+};
+
+export const loadSource = (sourceId: string) => {
+  return async (dispatch: Dispatch<Action>) => {
+    dispatch({
+      type: ActionType.LOAD_SOURCE_START
+    });
+
+    const result = await requestLoadSource(sourceId);
+
+    dispatch({
+      type: ActionType.LOAD_SOURCE_COMPLETE,
+      payload: {
+        sourceId,
+        source: result
       }
     });
   };
