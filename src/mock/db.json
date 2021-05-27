@@ -4,7 +4,7 @@
       "type": "template",
       "lang": "javascript",
       "id": "2eec3696-34ed-4557-877a-603a77811470",
-      "content": "console.log(1);"
+      "content": "const App = () => <h1>Hello, World!</h1>;"
     },
     {
       "type": "template",

@@ -11,7 +11,7 @@ type EditorParams = {
 
 const Editor = () => {
   const { templateId } = useParams<EditorParams>();
-  const { loadSource } = useActions();
+  const { loadSource, insertCellAfter, updateCell } = useActions();
   const { loading, source } = useTypedSelector(
     ({ sources: { loading, data } }) => ({
       source: data[templateId],
@@ -21,10 +21,13 @@ const Editor = () => {
   );
 
   useEffect(() => {
-    if (!loading && source) {
-      console.log(source);
+    if (templateId && loading) {
+      insertCellAfter(templateId, "code");
     }
-  }, [loading, source]);
+    if (templateId && !loading && source) {
+      updateCell(templateId, source.content);
+    }
+  }, [insertCellAfter, loading, source, templateId, updateCell]);
 
   useEffect(() => {
     loadSource(templateId);

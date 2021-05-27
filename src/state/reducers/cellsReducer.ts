@@ -43,6 +43,8 @@ const reducer = produce(
         draft.order[targetIndex] = currentId;
         return draft;
       case ActionType.INSERT_CELL_AFTER:
+        if (action.payload.id && draft.data[action.payload.id]) return draft;
+
         const cell: Cell = {
           content: "",
           type: action.payload.type,
