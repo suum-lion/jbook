@@ -1,0 +1,64 @@
+{
+  "sources": [
+    {
+      "type": "template",
+      "lang": "javascript",
+      "id": "2eec3696-34ed-4557-877a-603a77811470",
+      "content": "console.log(1);"
+    },
+    {
+      "type": "template",
+      "lang": "javascript",
+      "id": "f09ea773-a4d2-4440-a00e-3f760d63c356",
+      "content": ""
+    },
+    {
+      "type": "template",
+      "lang": "javascript",
+      "id": "55013316-d8f2-4ee5-83cb-596c24656459",
+      "content": ""
+    },
+    {
+      "type": "template",
+      "lang": "javascript",
+      "id": "b30194a6-c78a-4bda-9438-11b7890a4975",
+      "content": ""
+    },
+    {
+      "type": "template",
+      "lang": "javascript",
+      "id": "c44376e3-01c5-467b-a00b-e1228ddcf4b1",
+      "content": ""
+    },
+    {
+      "type": "template",
+      "lang": "javascript",
+      "id": "5ce834a2-4e7c-4bff-9ecd-839d5629b560",
+      "content": ""
+    },
+    {
+      "type": "template",
+      "lang": "javascript",
+      "id": "e55e9e7a-8aa7-4431-b91c-5de558dfc5f0",
+      "content": ""
+    },
+    {
+      "type": "template",
+      "lang": "javascript",
+      "id": "11b8eb8e-9bf7-4c3b-a486-03575fd8e1aa",
+      "content": ""
+    },
+    {
+      "type": "template",
+      "lang": "javascript",
+      "id": "838ed31a-5344-44cc-b3fc-e2006feddff4",
+      "content": ""
+    },
+    {
+      "type": "template",
+      "lang": "javascript",
+      "id": "4ef50785-e3c0-4f03-98a5-7fb7387550e1",
+      "content": ""
+    }
+  ]
+}
