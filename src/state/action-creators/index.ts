@@ -7,10 +7,11 @@ import {
   Direction,
   insertCellAfterAction,
   MoveCellAction,
-  UpdateCellAction
+  UpdateCellAction,
+  UpdateCellsAction
 } from "../actions";
 import { requestLoadSource } from "../apis";
-import { CellTypes } from "../cell";
+import { Cell, CellTypes } from "../cell";
 
 export const updateCell = (id: string, content: string): UpdateCellAction => {
   return {
@@ -18,6 +19,21 @@ export const updateCell = (id: string, content: string): UpdateCellAction => {
     payload: {
       id,
       content
+    }
+  };
+};
+
+export const updateCells = (
+  data: {
+    [key: string]: Cell;
+  },
+  order: string[]
+): UpdateCellsAction => {
+  return {
+    type: ActionType.UPDATE_CELLS,
+    payload: {
+      data,
+      order
     }
   };
 };
@@ -73,18 +89,18 @@ export const createBundle = (cellId: string, input: string) => {
   };
 };
 
-export const loadSource = (sourceId: string) => {
+export const loadSource = (hash: string) => {
   return async (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.LOAD_SOURCE_START
     });
 
-    const result = await requestLoadSource(sourceId);
+    const result = await requestLoadSource(hash);
 
     dispatch({
       type: ActionType.LOAD_SOURCE_COMPLETE,
       payload: {
-        sourceId,
+        hash,
         source: result
       }
     });

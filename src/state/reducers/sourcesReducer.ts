@@ -1,20 +1,7 @@
 import produce from "immer";
 import { ActionType } from "../action-types";
 import { Action } from "../actions";
-
-export enum SourceType {
-  TEMPLATE = "template",
-  OWNER = "owner",
-  CONTRIBUTE = "contribute"
-}
-
-export interface ISource {
-  type: SourceType;
-  lang: string;
-  id: string;
-  content: string;
-}
-
+import { ISource } from "../source";
 interface SourcesState {
   loading: boolean;
   error: string | null;
@@ -36,9 +23,9 @@ const reducer = produce(
         draft.loading = true;
         return draft;
       case ActionType.LOAD_SOURCE_COMPLETE:
-        const { sourceId, source } = action.payload;
+        const { hash, source } = action.payload;
         draft.loading = false;
-        draft.data[sourceId] = source;
+        draft.data[hash] = source;
         return draft;
       default:
         return draft;

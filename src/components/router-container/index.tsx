@@ -11,7 +11,7 @@ const RouterContainer = ({
   return (
     <Router history={customHistory}>
       <Switch>
-        <Route path="/:templateId">
+        <Route path="/:hash">
           <Editor />
         </Route>
       </Switch>

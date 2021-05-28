@@ -26,6 +26,11 @@ const reducer = produce(
         const { id, content } = action.payload;
         draft.data[id].content = content;
         return draft;
+      case ActionType.UPDATE_CELLS:
+        const { data, order } = action.payload;
+        draft.data = data;
+        draft.order = order;
+        return draft;
       case ActionType.DELETE_CELL:
         delete draft.data[action.payload];
         draft.order = draft.order.filter(id => id !== action.payload);
